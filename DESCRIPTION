@@ -1,0 +1,26 @@
+Package: spnaf
+Type: Package
+Title: Spatial Network Autocorrelation for Flow data
+Version: 0.1.0
+Authors@R: c(
+    person("Huijeong", "Ha", email = "haileyeehayee@gmail.com", role = c("aut")),
+    person("Jinhyung", "Lee", email = "jinhyung.lee@uwo.ca", role = c("aut")),
+    person("Kyusik", "Kim", email = "kkim17@fsu.edu", role = c("aut")),
+    person("Sohyun", "Park", email = "spark230@gmu.edu", role = c("aut")),
+    person("Youngbin", "Lee", email = "youngbin@snu.ac.kr", role = c("aut", "cre")))
+Description: Calculating spatial network autocorrelation for flow data with
+    G statistics. You provide OD data and the associated polygon to get results 
+    with several parameters defined by spdep package that control how the 
+    calculation would be executed. Please read documents about functions and 
+    parameters which explain needed forms and types of inputs.
+Depends: R (>= 3.5.0)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.2
+Imports: 
+    magrittr,
+    dplyr,
+    sf,
+    spdep,
+    tidyr
