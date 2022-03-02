@@ -28,9 +28,21 @@ The latter has the same attributes of the former, whereas its form is lines.
 Calculate spatial autocorrelation with OD data and corresponding polygons.
 }
 \examples{
-\dontrun{
-result <- Gij.polygon(df = Grid_OD, shape = Grid, queen = TRUE, snap = 1, method = 't', n = 1)
-result[[1]] # data.frame
-result[[2]] # lines
-}
+CA <- spnaf::CA
+OD <- cbind(CA$FIPS.County.Code.of.Geography.B, CA$FIPS.County.Code.of.Geography.A)
+OD <- cbind(OD, CA$Flow.from.Geography.B.to.Geography.A)
+OD <- data.frame(OD)
+names(OD) <- c("oid", "did", "n")
+OD$n <- as.numeric(OD$n)
+OD <- OD[order(OD[,1], OD[,2]),]
+head(OD)
+
+CA_polygon <- spnaf::CA_polygon
+head(CA_polygon)
+
+result <- Gij.polygon(df = OD, shape = CA_polygon, queen = TRUE, snap = 1,
+method = 't', n = 1000)
+
+head(result[[1]])
+head(result[[2]])
 }
