@@ -3,11 +3,11 @@ Type: Package
 Title: Spatial Network Autocorrelation for Flow data
 Version: 0.1.0
 Authors@R: c(
+    person("Youngbin", "Lee", email = "youngbin@snu.ac.kr", role = c("aut", "cre")),
     person("Huijeong", "Ha", email = "haileyeehayee@gmail.com", role = c("aut")),
-    person("Jinhyung", "Lee", email = "jinhyung.lee@uwo.ca", role = c("aut")),
-    person("Kyusik", "Kim", email = "kkim17@fsu.edu", role = c("aut")),
     person("Sohyun", "Park", email = "spark230@gmu.edu", role = c("aut")),
-    person("Youngbin", "Lee", email = "youngbin@snu.ac.kr", role = c("aut", "cre")))
+    person("Kyusik", "Kim", email = "kkim17@fsu.edu", role = c("aut")),
+    person("Jinhyung", "Lee", email = "jinhyung.lee@uwo.ca", role = c("aut")))
 Description: Calculating spatial network autocorrelation for flow data with
     G statistics. You provide OD data and the associated polygon to get results 
     with several parameters defined by spdep package that control how the 
@@ -24,3 +24,6 @@ Imports:
     sf,
     spdep,
     tidyr
+Suggests: 
+    knitr
+VignetteBuilder: knitr
