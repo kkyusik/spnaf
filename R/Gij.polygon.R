@@ -27,6 +27,9 @@
 #'
 #' head(result[[1]])
 #' head(result[[2]])
+#' @references
+#' Berglund, S., & Karlström, A. (1999). Identifying local spatial association in
+#' flow data, Journal of Geographical Systems, 1(3), 219-236. https://doi.org/10.1007/s101090050013
 
 #' @importFrom magrittr %>%
 #' @export Gij.polygon
