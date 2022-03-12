@@ -23,7 +23,8 @@ Imports:
     dplyr,
     sf,
     spdep,
-    tidyr
+    tidyr,
+    rmarkdown
 Suggests: 
     knitr
 VignetteBuilder: knitr
