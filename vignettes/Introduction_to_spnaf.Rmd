@@ -37,7 +37,7 @@ plot(CA_polygon, col = 'white', main = 'CA polygon')
 ```
 
 ## Function: Gij.polygon
-*spnaf* package aims to measure spatial density of networks, which have origins (starting point) and destinations (ending point). Main function of *spnaf* is called **Gij.polygon** and the first main input of the function is **df** which is OD data in a data.frame form that must contain "oid", "did", and "n"(please refer to the help document) like CA above. The second important input is **shape** which is corresponding polygon object in *sf* class. The function also inherited two parameters from [_spdep_](https://r-spatial.github.io/spdep/) such as **queen, snap**. The parameter **method** is one of c("t", "o", "d") which stand for total, origins only, and destinations only respectively(Please check [this paper](https://link.springer.com/article/10.1007/s10109-008-0068-2) to get more information about the method). The last parameter **n** is used for bootstrapping the results since there would be violation of the assumption of normality when one try to calculate a spatial statistic with polygons(see how authors told about it in [this paper]()).
+*spnaf* package aims to measure spatial density of networks, which have origins (starting point) and destinations (ending point). Main function of *spnaf* is called **Gij.polygon** and the first main input of the function is **df** which is OD data in a data.frame form that must contain "oid", "did", and "n"(please refer to the help document) like CA above. The second important input is **shape** which is corresponding polygon object in *sf* class. The function also inherited two parameters from [_spdep_](https://r-spatial.github.io/spdep/) such as **queen, snap**. The parameter **method** is one of c("t", "o", "d") which stand for total, origins only, and destinations only respectively(Please check [this paper](https://link.springer.com/article/10.1007/s10109-008-0068-2) to get more information about the method). The last parameter **n** is used for bootstrapping permutation of resampling the individual statistic n times to generate a non-parametric distribution, since there would be a violation of the assumption of normality when one tries to calculate a spatial statistic with polygons(see how authors told about it in [this paper]()). The process should be done to ensure a statistical significance of the statistic.
 
 ```{r}
 args(Gij.polygon)
@@ -66,4 +66,10 @@ head(result[[2]])
 ```
 
 ### Interpretation of the result
-To be continued...
+The metric, an extended statistic of Getis and Ord (1992), G~i~^\*^, has similar intuition of hotspot analysis with static data: a high and significant value in a flow indicates spatial clustering of flows with high values. it can be interpreted as Z-value suitable for conducting statistical tests as the metric inherited the characteristics of G~i~^\*^. If one conducted bootstrapping for 1,000 times like above, those with a value greater than the 50th largest value of the distribution (i.e., at the significance level of 0.05) can be defined as positive clusters.
+
+
+### Reference
+* Berglund, S., & Karlström, A. (1999). Identifying local spatial association in flow data, *Journal of Geographical Systems*, 1(3), 219-236. https://doi.org/10.1007/s101090050013  
+* Getis, A., & Ord, J. K. (1992). The Analysis of Spatial Association by Use of Distance Statistics, *Geographical Analysis*, 24(3), 189-206. https://doi.org/10.1111/j.1538-4632.1992.tb00261.x  
+* Chun, Y. (2008). Modeling network autocorrelation within migration flows by eigenvector spatial filtering. *Journal of Geographical Systems*, 10, 317–344. https://doi.org/10.1007/s10109-008-0068-2
