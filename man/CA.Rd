@@ -21,10 +21,18 @@ A \code{data.frame} object with 2580 rows and 12 variables
   \item{Gross.Migration.between.Geography.A.and.Geography.B}{Gross migration count between counties}
 }
 }
+\source{
+Census.gov > Population > Migration/Geographic Mobility > Guidance for Data Users > County-to-County Migration Flows
+https://www.census.gov/topics/population/migration/guidance/county-to-county-migration-flows.html
+}
 \usage{
 CA
 }
 \description{
 A dataframe containing migration of CA counties with origins and destinations
+from US Census
+}
+\examples{
+CA
 }
 \keyword{datasets}

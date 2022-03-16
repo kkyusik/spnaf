@@ -9,25 +9,26 @@ Gij.polygon(df, shape, queen = TRUE, snap = 1, method = "t", n = 1000)
 \arguments{
 \item{df}{A data.frame that contains your Origin-Destination data. The df must consist of "oid"(origin id), "did"(destination id), "n"(flow value).}
 
-\item{shape}{A shapefile(in a polygon type) that matches to your OD data.frame. The shape must have "id" column to match your df.}
+\item{shape}{A shapefile(in a polygon type) that matches to your OD dataframe. The shape must have "id" column to match your df.}
 
-\item{queen}{A T/F input that is used to calculate spdep's spatial contingency(Please view documents of spdep package for more information).}
+\item{queen}{A T/F input that is used to calculate \code{spdep}'s spatial contingency(Please view documents of \link[spdep]{poly2nb} for more information).}
 
-\item{snap}{A parameter that is also used to calculate spdep's spatial contingency(Please view documents of spdep package for more information).}
+\item{snap}{A parameter that is also used to calculate \code{spdep}'s spatial contingency(Please view documents of spdep package for more information).}
 
 \item{method}{A character value among "o"(origin based), "d"(destination based), and "t"(both way) which determines the way to generate Spatial Weights. The default value is "t".}
 
-\item{n}{A integer value to define how many times you want to execute bootstrapping.}
+\item{n}{An integer value to define how many times you want to execute bootstrapping.}
 }
 \value{
-The result is in the form of a list which includes dataframe and lines.
-The first result consists of Gij statistics and p-value in columns merged to your input df.
-The latter has the same attributes of the former, whereas its form is lines.
+The result is in the form of a list which includes dataframe and \code{sf} object.
+The first result consists of Gij statistics and p-value columns merged to your input df.
+The latter has the same attributes of the former, whereas its form is \code{sf} object(especially lines).
 }
 \description{
 Calculate spatial autocorrelation with OD data and corresponding polygons.
 }
 \examples{
+# Data manipulation
 CA <- spnaf::CA
 OD <- cbind(CA$FIPS.County.Code.of.Geography.B, CA$FIPS.County.Code.of.Geography.A)
 OD <- cbind(OD, CA$Flow.from.Geography.B.to.Geography.A)
@@ -35,16 +36,20 @@ OD <- data.frame(OD)
 names(OD) <- c("oid", "did", "n")
 OD$n <- as.numeric(OD$n)
 OD <- OD[order(OD[,1], OD[,2]),]
-head(OD)
+head(OD) # check the input df's format
 
+# Load sf polygon
 CA_polygon <- spnaf::CA_polygon
-head(CA_polygon)
+head(CA_polygon) # it has geometry column
 
+# Execution of Gij.polygon with data above and given parameters
 result <- Gij.polygon(df = OD, shape = CA_polygon, queen = TRUE, snap = 1,
 method = 't', n = 1000)
 
+# check the results
 head(result[[1]])
 head(result[[2]])
+
 }
 \references{
 Berglund, S., & Karlström, A. (1999). Identifying local spatial association in
