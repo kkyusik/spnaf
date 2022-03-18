@@ -12,7 +12,7 @@ Description: Calculating spatial network autocorrelation for flow data with
     G statistics. You provide OD data and the associated polygon to get results 
     with several parameters defined by spdep package that control how the 
     calculation would be executed. Please read documents about functions and 
-    parameters which explain needed forms and types of inputs.
+    parameters which explain needed forms and types of inputs. ############ test
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
