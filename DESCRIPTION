@@ -8,11 +8,12 @@ Authors@R: c(
     person(given="Sohyun", family="Park", email="spark230@gmu.edu", role="aut", comment = c(ORCID = "0000-0002-1231-5662")),
     person(given="Kyusik", family="Kim", email="wpkyusik@gmail.com", role="aut", comment = c(ORCID = "0000-0003-3753-3196")),
     person(given="Jinhyung", family="Lee", email="jinhyung.lee@uwo.ca", role="aut", comment = c(ORCID = "0000-0003-1859-3441")))
-Description: Calculating spatial network autocorrelation for flow data with
-    G statistics. You provide OD data and the associated polygon to get results 
-    with several parameters defined by spdep package that control how the 
-    calculation would be executed. Please read documents about functions and 
-    parameters which explain needed forms and types of inputs.
+Description: Identify statistically significant flow clusters using the local spatial network autocorrelation statistic G_ij* 
+    proposed by 'Berglund' and 'Karlström' (1999) <doi:10.1007/s101090050013>. 
+    The metric, an extended statistic of 'Getis/Ord' G ('Getis' and 'Ord' 1992) <doi:10.1111/j.1538-4632.1992.tb00261.x>, 
+    detects a group of flows having similar traits in terms of directionality. 
+    You provide OD data and the associated polygon to get results 
+    with several parameters, some of which are defined by spdep package.
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
