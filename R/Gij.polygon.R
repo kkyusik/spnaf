@@ -1,14 +1,13 @@
 #' Calculate spatial autocorrelation with OD data and corresponding polygons.
 #'
-#' @param df A data.frame that contains your Origin-Destination data. The df must consist of "oid"(origin id), "did"(destination id), "n"(flow value).
-#' @param shape A shapefile(in a polygon type) that matches to your OD dataframe. The shape must have "id" column to match your df.
-#' @param queen A T/F input that is used to calculate \code{spdep}'s spatial contingency(Please view documents of \link[spdep]{poly2nb} for more information).
-#' @param snap A parameter that is also used to calculate \code{spdep}'s spatial contingency(Please view documents of spdep package for more information).
-#' @param method A character value among "o"(origin based), "d"(destination based), and "t"(both way) which determines the way to generate Spatial Weights. The default value is "t".
+#' @param df A data.frame that contains your Origin-Destination data. The df must consist of "oid"(origin id), "did"(destination id), "n"(flow weight).
+#' @param shape A shapefile (in a polygon type) that matches to your OD dataframe. The shape must have an "id" column to match your ids in df.
+#' @param queen A T/F input that is used to calculate \code{spdep}'s spatial contingency (Please view documents of \link[spdep]{poly2nb} for more information).
+#' @param snap A parameter that is also used to calculate \code{spdep}'s spatial contingency (Please view documents of spdep package for more information).
+#' @param method A string value among "o"(origin based), "d"(destination based), and "t"(both way) which determines the way to generate Spatial Weights. The default value is "t".
 #' @param n An integer value to define how many times you want to execute bootstrapping.
-#' @return The result is in the form of a list which includes dataframe and \code{sf} object.
-#' The first result consists of Gij statistics and p-value columns merged to your input df.
-#' The latter has the same attributes of the former, whereas its form is \code{sf} object(especially lines).
+#' @return The result is in the form of a list which includes a dataframe and a \code{sf} object.
+#' Both contain Gij statistics and p-value columns merged to your input df. The geometry type of the latter is linestring.
 #' @examples
 #' # Data manipulation
 #' CA <- spnaf::CA
@@ -22,7 +21,7 @@
 #'
 #' # Load sf polygon
 #' CA_polygon <- spnaf::CA_polygon
-#' head(CA_polygon) # it has geometry column
+#' head(CA_polygon) # it has a geometry column
 #'
 #' # Execution of Gij.polygon with data above and given parameters
 #' result <- Gij.polygon(df = OD, shape = CA_polygon, queen = TRUE, snap = 1,
