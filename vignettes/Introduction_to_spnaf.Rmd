@@ -69,7 +69,7 @@ method = 't', n = 1000)
 ```
 
 ### Interpretation of the result
-The metric, an extended statistic of Getis and Ord (1992), G~i~^\*^, has similar intuition of hotspot analysis with static data: a high and significant value in a flow indicates spatial clustering of flows with high values. it can be interpreted as Z-value suitable for conducting statistical tests as the metric inherited the characteristics of G~i~^\*^. If one conducted bootstrapping for 1,000 times like above, those with a value greater than the 50th largest value of the distribution (i.e., at the significance level of 0.05) can be defined as positive clusters.
+The metric, an extended statistic of Getis and Ord (1992), $G_{i}^{*}$, has similar intuition of hotspot analysis with static data: a high and significant value in a flow indicates spatial clustering of flows with high values. it can be interpreted as Z-value suitable for conducting statistical tests as the metric inherited the characteristics of $G_{i}^{*}$. If one conducted bootstrapping for 1,000 times like above, those with a value greater than the 50th largest value of the distribution (i.e., at the significance level of 0.05) can be defined as positive clusters.
 
 ```{r, eval=FALSE}
 # positive clusters at the significance level of 0.05
