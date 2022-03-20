@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-The _spnaf_ package is developed for calculating spatial network autocorrelation for flow data. Functions in the package are designed specifically to evaluate how networks are spatially clustered, in the form of **Gij statistic** which is presented in the [paper](https://link.springer.com/article/10.1007/s101090050013) written by Berglund and Karlström.  
+The _spnaf_ package is developed for calculating spatial network autocorrelation for flow data. Functions in the package are designed specifically to evaluate how networks are spatially clustered, in the form of **$G_{ij}$ statistic** which is presented in the [paper](https://link.springer.com/article/10.1007/s101090050013) written by Berglund and Karlström.  
 
 
 ```{r, include = FALSE}
