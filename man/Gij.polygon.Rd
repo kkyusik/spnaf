@@ -7,15 +7,15 @@
 Gij.polygon(df, shape, queen = TRUE, snap = 1, method = "t", n = 1000)
 }
 \arguments{
-\item{df}{A data.frame that contains your Origin-Destination data. The df must consist of "oid"(origin id), "did"(destination id), "n"(flow weight).}
+\item{df}{A data.frame that contains your Origin-Destination data. The df must consist of "oid" (origin id), "did" (destination id), "n" (flow weight).}
 
 \item{shape}{A shapefile (in a polygon type) that matches to your OD dataframe. The shape must have an "id" column to match your ids in df.}
 
-\item{queen}{A T/F input that is used to calculate \code{spdep}'s spatial contingency (Please view documents of \link[spdep]{poly2nb} for more information).}
+\item{queen}{A TRUE/FALSE input that is used to calculate \code{spdep}'s spatial contingency (Please view documents of \link[spdep]{poly2nb} for more information).}
 
 \item{snap}{A parameter that is also used to calculate \code{spdep}'s spatial contingency (Please view documents of \link[spdep]{poly2nb} for more information).}
 
-\item{method}{A string value among "o"(origin based), "d"(destination based), and "t"(both way) which determines the way to generate Spatial Weights. The default value is "t".}
+\item{method}{A string value among "o" (origin based), "d" (destination based), and "t" (both way) which determines the way to generate Spatial Weights. The default value is "t".}
 
 \item{n}{An integer value to define how many times you want to execute bootstrapping.}
 }
