@@ -91,15 +91,6 @@ tm_shape(CA_polygon) +
 
 ```
 
-<!-- ### Visualize Significant Flows(<0.05) only -->
-<!-- ```{r} -->
-<!-- tm_shape(CA_polygon) + -->
-<!--   tm_polygons()+ -->
-<!--   tm_shape(result[[2]][result[[2]]$pval < 0.05,]) + -->
-<!--   tm_lines(col='pval') -->
-<!-- ``` -->
-
-
 ### Reference
 * Berglund, S. & Karlström, A. (1999). Identifying local spatial association in flow data, *Journal of Geographical Systems*, 1(3), 219-236. https://doi.org/10.1007/s101090050013  
 * Getis, A. & Ord, J. K. (1992). The Analysis of Spatial Association by Use of Distance Statistics, *Geographical Analysis*, 24(3), 189-206. https://doi.org/10.1111/j.1538-4632.1992.tb00261.x  
