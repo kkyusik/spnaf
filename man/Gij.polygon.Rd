@@ -42,13 +42,16 @@ CA_polygon <- spnaf::CA_polygon
 head(CA_polygon) # it has a geometry column
 
 # Execution of Gij.polygon with data above and given parameters
+\donttest{
 result <- Gij.polygon(df = OD, shape = CA_polygon, queen = TRUE, snap = 1,
 method = 't', n = 1000)
+}
 
 # check the results
+\donttest{
 head(result[[1]])
 head(result[[2]])
-
+}
 }
 \references{
 Berglund, S., & Karlström, A. (1999). Identifying local spatial association in
