@@ -19,6 +19,13 @@ SpatialWeight <- function(df, shape, snap, queen){
         dplyr::left_join(nb_frame, by = c("oid" = "oid", "did" = "did")) %>%
         dplyr::mutate(w = ifelse(oid == did, 1, w)) %>%
         dplyr::arrange(oid, did)
+    ## Union is created by input polygons^2
+    U <- merge(CA_polygon$id, CA_polygon$id)
+    names(U) <- c("oid", "did")
+    ### Join OD data to Union
+    result <- U %>%
+        dplyr::left_join(result, by = c("oid" = "oid", "did" = "did")) %>%
+        dplyr::mutate(n = ifelse(is.na(n), 0, n))
 
     return(result)
 
