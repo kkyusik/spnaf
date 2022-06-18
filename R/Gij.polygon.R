@@ -51,7 +51,7 @@ Gij.polygon <- function(df, shape,
 
     sw <- SpatialWeight(df, shape, snap, queen)
     # result_frame: OD data + G statistic
-    result_frame <- Gstat(SpecialWeights = sw, method = method) %>%
+    result_frame <- Gstat(SpatialWeights = sw, method = method) %>%
         dplyr::select(oid, did, n, Gij)
     # result_frame: OD data + G statistic + pval
     result_frame <- Boot(rf = result_frame, n = n)
